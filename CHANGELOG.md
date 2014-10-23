@@ -1,3 +1,19 @@
+Version 0.1.1 - October 23, 2014
+--------------------------------
+
+Bug Fixes:
+
+- Fix erroneous warning when geofence action queue has been emptied and a new
+  action is added. This fix also causes the new action to start running.
+- Fix race condition reporting erroneous warning caused by multi-step actions
+  are rapidly added to the queue.
+- Fix `ClassCastException` caused if the AltBeacon `BeaconManager` is created
+  prior to the Proximity Kit manager being instantiated.
+- Uses distance calculations specific to the Android model
+- Fix bug with RegionBootstrap setting background mode incorrectly on app
+  launch
+
+
 Version 0.1.0 - September 4, 2014
 ---------------------------------
 
