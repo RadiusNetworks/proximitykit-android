@@ -1,3 +1,18 @@
+Version 0.2.0 - October 27, 2014
+--------------------------------
+
+Enhancements:
+
+- Add `ProximityKitManager#stop()` to the public API
+
+  This stops any further syncing with the cloud. It additionally, unregisters
+  any beacons and geofences which are being monitored.
+- Attempts to auto update database of Android model specific distance
+  calculations
+- Added generation of beacon bytearrays from BeaconParser in support of future
+  transmitter on release of Android
+
+
 Version 0.1.1 - October 23, 2014
 --------------------------------
 
