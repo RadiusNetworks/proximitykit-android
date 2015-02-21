@@ -1,3 +1,27 @@
+Version 0.3.0 - February 20, 2015
+---------------------------------
+
+Enhancements:
+
+- Add ability to set a threshold on how many regions can be registered before
+  being automatically combined. This allows for large region sets but keeps the
+  device from getting overwhelmed.
+
+
+Bug Fixes:
+
+- Fix `NullPointerException` which occurs when requesting a Kit's overlays when
+  it does not have a map.  (RadiusNetworks/proximitykit-android/#2)
+- Fix bug preventing geofencing from working with API levels below 18.
+  Geofences rely on Google Play services so they still require a min Android
+  API level of 9.
+- Reduce the `minSdkVersion` to 4; this is the lowest function API level which
+  Proximity Kit will work with.
+- Update to [AltBeacon/android-beacon-library](https://github.com/AltBeacon/android-beacon-library)
+  version [2.1.3](https://github.com/AltBeacon/android-beacon-library/releases/tag/2.1.3)
+- Prevent services from being exported system wide.
+
+
 Version 0.2.0 - October 27, 2014
 --------------------------------
 
