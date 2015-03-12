@@ -1,3 +1,11 @@
+Version 0.3.1 - March 11, 2015
+------------------------------
+
+Bug Fixes:
+
+- Remove static compiled 'support-v4' library.
+
+
 Version 0.3.0 - February 20, 2015
 ---------------------------------
 
