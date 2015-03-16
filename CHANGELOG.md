@@ -1,3 +1,16 @@
+Version 0.4.0 - March 16, 2015
+------------------------------
+
+Enhancements:
+
+- Add support for version 6.1 and 6.5 of the Google Play Services Library.
+
+Bug Fixes:
+
+- Update to [AltBeacon/android-beacon-library](https://github.com/AltBeacon/android-beacon-library)
+  version [2.1.4](https://github.com/AltBeacon/android-beacon-library/releases/tag/2.1.4)
+
+
 Version 0.3.1 - March 11, 2015
 ------------------------------
 
@@ -14,7 +27,6 @@ Enhancements:
 - Add ability to set a threshold on how many regions can be registered before
   being automatically combined. This allows for large region sets but keeps the
   device from getting overwhelmed.
-
 
 Bug Fixes:
 
