@@ -1,3 +1,28 @@
+Version 0.5.0 - April 10, 2015
+------------------------------
+
+Enhancements:
+
+- Add support for explicit region monitoring and ranging.
+
+  Previous functionality can be achieved by not checking "Explicit Region
+  Monitoring" on the kit's "Properties -> Settings" page on the server. In
+  order to control which regions are ranged and monitored ensure this option is
+  checked.
+
+  On the server, regions have an "Advanced Settings" option where you can check
+  "Enable Ranging" and/or "Enable Region Monitoring".
+
+Deprecations:
+
+- The `ProximityKitManager#getMaxRegionsBeforeRollup` and
+  `ProximityKitManager#setMaxRegionsBeforeRollup` methods are now no-ops. Use
+  the new explicit region monitoring behavior instead.
+- The `KitBeacon#to_region` conversion method was never intended to be
+  `public`. To convert a `KitBeacon` to a `Region` construct a new region using
+  the identifiers from the beacon.
+
+
 Version 0.4.0 - March 16, 2015
 ------------------------------
 
