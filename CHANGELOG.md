@@ -1,3 +1,11 @@
+Version 0.6.0 - April 28, 2015
+------------------------------
+
+Enhancements:
+
+- Support for [Director](https://director.radiusnetworks.com) analytics.
+
+
 Version 0.5.0 - April 10, 2015
 ------------------------------
 
