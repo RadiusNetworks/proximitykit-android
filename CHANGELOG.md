@@ -1,3 +1,12 @@
+Version 0.6.1 - May 5. 2015
+---------------------------
+
+Bug Fixes:
+
+- Fix timestamp parsing and formatting bug which can occur when Director is
+  called from multiple threads.
+
+
 Version 0.6.0 - April 28, 2015
 ------------------------------
 
