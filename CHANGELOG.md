@@ -1,4 +1,15 @@
-Version 0.6.1 - May 5. 2015
+Version 0.6.2 - May 28, 2015
+----------------------------
+
+Bug Fixes:
+
+- Fix issue with ranging where the ranging timestamp is incorrectly store as a
+  future time due to background task execution delays
+- Fix issue where a group of beacons are ranged at the same time but may report
+  slightly different timestamps
+
+
+Version 0.6.1 - May 5, 2015
 ---------------------------
 
 Bug Fixes:
