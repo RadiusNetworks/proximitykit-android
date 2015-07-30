@@ -1,3 +1,14 @@
+Version 0.7.0 - July 30, 2015
+-----------------------------
+
+Enhancements:
+
+- Add `ProximityKitManager#setPartnerIdentifier(String)` and
+  `ProximityKitManager#clearPartnerIdentifier()` to the public API. Allowing
+  the configuration of an additional custom identifier which is attached to
+  analytic events.
+
+
 Version 0.6.3 - July 30, 2015
 -----------------------------
 
