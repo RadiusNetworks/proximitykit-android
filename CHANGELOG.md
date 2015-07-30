@@ -1,3 +1,16 @@
+Version 0.6.3 - July 30, 2015
+-----------------------------
+
+Bug Fixes:
+
+- Move calls to Status Kit analytics into a custom serial background queue;
+  thus no longer consuming resources from `AsyncTask`'s thread pools
+- Update to [AltBeacon/android-beacon-library](https://github.com/AltBeacon/android-beacon-library)
+  version [2.3.5](https://github.com/AltBeacon/android-beacon-library/releases/tag/2.3.5)
+- Fix edge case on spotty, slow, or no networks which causes every ranged
+  beacon event to attempt a status update over the network.
+
+
 Version 0.6.2 - May 28, 2015
 ----------------------------
 
