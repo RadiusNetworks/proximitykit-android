@@ -1,3 +1,16 @@
+Version 0.8.0 - September 9, 2015
+---------------------------------
+
+Enhancements:
+
+- Add support for version 7.x of the Google Play Services library.
+
+Bug Fixes:
+
+- Fix `NullPointerException` caused by an intent for a non-geofence transition
+  alert
+
+
 Version 0.7.0 - July 30, 2015
 -----------------------------
 
