@@ -1,3 +1,15 @@
+Version 0.9.0 - October 5, 2015
+---------------------------------
+
+Enhancements:
+
+- Add an extra server sync on power connection
+  Allows an app put into AppStandby mode on Android 6.0+ to still sync even though
+  its access to network has been restricted when power is not connected.
+- Update to [AltBeacon/android-beacon-library](https://github.com/AltBeacon/android-beacon-library)
+  version [2.6.1](https://github.com/AltBeacon/android-beacon-library/releases/tag/2.6.1)
+
+
 Version 0.8.0 - September 9, 2015
 ---------------------------------
 
