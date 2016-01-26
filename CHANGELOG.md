@@ -1,5 +1,64 @@
-Version 0.9.0 - October 5, 2015
+Version 0.10.0 - January 26, 2016
 ---------------------------------
+
+Enhancements:
+
+- Start monitoring geofences immediately when enabling them after the
+  `ProximityKitManager` has been started; this provides improved support for
+  Android 6 app which need to request runtime permissions
+- Support custom `KitConfig` on initialization of `ProximityKitManager` via
+  the factory `ProximityKitManager#getInstance(Context, KitConfig)`
+- Support disabling cellular data for network communications through a flag in
+  the `KitConfig`
+- Add support for kit specific analytics URLs (see `Kit#getAnalyticsURL`)
+- Use the analytics URL synced with a kit if one is not already set
+
+Bug Fixes:
+
+- Fix timestamp formatting in analytics data to properly send UTC times
+- Improve handling of aggregate regions in analytics sessions
+- Do not overwrite the timestamps when closing of analytic sessions
+- Improve how analytics are recorded during ranging events
+- Improve thread safety by synchronizing `ProximityKitManager` starting,
+  stopping, feature toggles, and setting of callback notifiers.
+- Fix a `NullPointerException` caused by stopping the manager while a failed
+  sync was being processed
+- Close input streams after reading network responses
+- Fix race condition when accessing, the now deprecated (see below), factory
+  `ProximityKitManager#getInstanceForApplication(Context)` from multiple threads
+  prior to the initial creation of a `ProximityKitManager`
+- Improved network and battery savings by defaulting to syncing Status Kit
+  updates every 2 minutes instead of 30 seconds
+
+Deprecations:
+
+- Deprecate all of the following in favor of using the new configuration
+  friendly factory `ProximityKitManager#getInstance(Context, KitConfig)`:
+
+  - `ProximityKitManager()`
+  - `ProximityKitManager(Context)`
+  - `ProximityKitManager#getInstanceForApplication(Context)`
+  - `ProximityKitManager#setConfiguration(String, String)`
+  - `ProximityKitManager#setConfiguration(String, String, String)`
+  - `ProximityKitManager#setPartnerIdentifier(String)`
+  - `ProximityKitManager#clearPartnerIdentifier()`
+- Deprecate `ProximityKitManager#restart()`, no replacement
+- Deprecate all of the following in favor of using the new configuration
+  friendly constructor `Configuration(Context, KitConfig)`:
+
+  - `Configuration(Context)`
+  - `Configuration(Context, Configuration, String, String)`
+  - `Configuration(Context, Configuration, String, String, String)`
+- Deprecate all of the following in favor of using the new configuration
+  friendly setter `LicenseManager#reconfigure(Configuration)`:
+
+  - `LicenseManager#reconfigure(Context)`
+  - `LicenseManager#reconfigure(String, String)`
+  - `LicenseManager#reconfigure(String, String, String)`
+
+
+Version 0.9.0 - October 5, 2015
+-------------------------------
 
 Enhancements:
 
