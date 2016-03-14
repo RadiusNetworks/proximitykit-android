@@ -1,3 +1,18 @@
+Version 0.10.2 - March 14, 2016
+-------------------------------
+
+Bug Fixes:
+
+- Fix `NullPointerException` which occurs when enabling geofences for a kit
+  that is not setup with a map
+- Fix a `NullPointerException` caused by disabling geofences while a sync is
+  being processed
+- Fix issue where removing the map from a kit does not clear monitored
+  geofences after a sync
+- Perform beacon and geofence monitoring/ranging changes prior to calling
+  `ProximityKitSyncNotifier#didSync`
+
+
 Version 0.10.1 - February 23, 2016
 ----------------------------------
 
