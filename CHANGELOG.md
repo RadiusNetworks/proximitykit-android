@@ -1,3 +1,19 @@
+Version 0.11.0 - July 21, 2016
+------------------------------
+
+Enhancements:
+
+- Report OS platform (as Android) with analytics and syncs
+- Add name attribute to `ProximityKitGeofenceRegion#getName`
+- Include local device bluetooth state on server sync
+- Guard against remote exception when processing ranging events
+
+Breaking Changes:
+
+- Drop support for scavenger hunt configuration with removal of
+  `ProximityKitManager#restart(String)`
+
+
 Version 0.10.2 - March 14, 2016
 -------------------------------
 
