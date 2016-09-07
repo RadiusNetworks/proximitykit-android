@@ -1,3 +1,71 @@
+## Version 0.12.0 - September 7, 2016
+
+Enhancements:
+
+- Regenerate app id if value becomes corrupted
+- Add support for version 9.x of the Google Play services library
+- Adds config setting `KitConfig.ALLOW_UNSUPPORTED_GOOGLE_PLAY` to by-pass the
+  Google Play version check. This may result in a runtime crash as it will
+  allow running against untested versions of Google Play.
+- Begins including nullability annotations to provide better insight into the
+  public API and help developers guard against `NullPointerException` only when
+  necessary. See https://developer.android.com/studio/write/annotations.html
+  for further details.
+- Support caching multiple kits
+- Retry analytic data upload when no network is available
+- Attempt analytic upload with out delay; previously there was a 30 second
+  delay from the closing of a session and the upload
+- Attempt analytic upload on successful kit sync
+- Add ability to transmit beacon advertisements on supported hardware
+
+Bug Fixes:
+
+- Improve thread safety around starting and stopping Proximity Kit Manager
+- Improve thread safety around background time sync; ensuring only a single
+  sync task is ever queued at a time
+- Fix geofence region monitoring race condition which may exclude a region
+- Monitor existing geofences on `start` from local cache
+- Fix loading kit cache on unavailable network
+- Fix race condition which may drop some analytic data
+- Fix queuing duplicate analytic upload job on upload error
+- Move analytic upload off `AsyncTask` queue on Android Honeycomb and newer
+- Prune analytic data after upload
+
+Breaking Changes:
+
+- Not exactly a _breaking_ change but a slight behavior modification. The
+  `MissingKeyException` and `MissingValueException` classes now do _not_
+  automatically append the key name to the provided detail message. This change
+  is to fall more inline with how existing exceptions work as well as provide
+  better support for internationalized messages in the future.
+
+Deprecations:
+
+- The `LicenseManager` is a legacy internal implementation detail. It is in the
+  process of being phased out. In this initial round the following publicly
+  exposed methods are now deprecated and have been turned into no-ops:
+
+  - `LicenseManager.getServerCheckCount()`
+  - `LicenseManager.resetLicenseCheck()`
+  - `LicenseManager.validateLicense()`
+  - `LicenseManager(Context, Configuration, String, Date)`
+- `KitOverlay()` is an internal implementation detail which was not meant to be
+  exposed in the public API. It may be retained only as a private method in a
+  future release.
+- Deprecate support for 4.x - 7.x of the Google Play service library.
+
+  This only adds a warning message to the logs when an app is built against a
+  version of Google Play services in this range. Apps will continue to function
+  as expected but developers are encourage to move to a newer version of Google
+  Play.
+
+  For historical reference version 4.4.x of Google Play services was released
+  in May 2014. The most recent deprecated version, 7.8.x, was released in
+  August 2015.
+
+
+
+
 Version 0.11.0 - July 21, 2016
 ------------------------------
 
