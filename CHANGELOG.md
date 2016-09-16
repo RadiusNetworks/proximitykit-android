@@ -1,3 +1,15 @@
+## Version 0.12.1 - September 16, 2016
+
+Bug Fixes:
+
+- Fix crash on wifi or power state change which occurs before a Proximity Kit
+  manager has been created
+- Fix race condition queuing multiple syncs on wifi or power state change
+- Respect configured sync interval when syncing on wifi or power state changes
+- Use sync interval provided in kit config
+- Prevent duplicate geofence enter events on sync
+
+
 ## Version 0.12.0 - September 7, 2016
 
 Enhancements:
@@ -62,8 +74,6 @@ Deprecations:
   For historical reference version 4.4.x of Google Play services was released
   in May 2014. The most recent deprecated version, 7.8.x, was released in
   August 2015.
-
-
 
 
 Version 0.11.0 - July 21, 2016
