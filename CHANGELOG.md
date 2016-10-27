@@ -1,3 +1,8 @@
+## Version 0.12.2 - October 27, 2016
+
+No public facing changes
+
+
 ## Version 0.12.1 - September 16, 2016
 
 Bug Fixes:
