@@ -1,3 +1,10 @@
+## Version 0.12.3 - November 7, 2016
+
+Bug Fixes:
+
+- Fix bug causing rapid kit syncs when setting a custom sync interval
+
+
 ## Version 0.12.2 - October 27, 2016
 
 No public facing changes
