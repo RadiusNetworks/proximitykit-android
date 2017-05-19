@@ -1,3 +1,91 @@
+## Version 0.13.0 - May 19, 2017
+
+Enhancements:
+
+- Add new public method `ProximityKitGeofenceRegion#regionEquals` to check
+  whether another region equals this one
+- Add new public method `ProximityKitBeacon#getBatteryLevel` allowing access
+  to beacon battery level as reported by AltBeacon advertisements
+- Support Android 7.x (API 24 and 25)
+- Support Google Play 10.x
+- Persist region state across restarts (see
+  `ProximityKitMonitorNotifier#didDetermineStateForRegion` for more details)
+- Provide `ProximityKitMonitorNotifier#didDetermineStateForRegion` callback for
+  each kit region on initial `ProximityKitManager#start` and on a successful
+  kit sync
+- Improve sync efficiency by using E-Tags for conditional sync
+- Add new public method `Kit#getGeofences` allowing access to the
+  `ProximityKitGeofenceRegion` objects defined in the kit
+- Support toggling between running separate `ProximityKitManager` instances;
+  only a single instance is allowed to run at any one time
+- New interface `ProximityRegion` and class `RegionEvent` for general region
+  monitoring broadcasts through `LocalBroadcastManager` (requires app compat)
+- Both `ProximityKitBeaconRegion` and `ProximityKitGeofenceRegion` implement
+  new `ProximityRegion`
+- Add new public method `KitOverlay#getIdentifier` allowing access to the
+  entity identifier which uniquely identifies the object within the kit
+- Add several new code type annotations to help improve IDE intellisense
+
+Bug Fixes:
+
+- Inherit metadata specified by parent regions in child regions / beacons
+- Fix analytic upload timestamp formatting
+- Fix edge case crash caused by parsing a malformed BLE packet
+- Fix UI slowness, and possible hang, in Android 6+ when Location Services
+  permissions are revoked while scanning
+
+  It is still recommended that apps always check permissions and BLE/Location
+  Services state when returning from the background. If the appropriate
+  permissions or services are not in the desired state either engage the user
+  or explicitly stop the `ProximityKitManager`.
+- Fix edge case `Context` leak with manager creation
+- Include service UUID PDU in Eddystone transmissions
+- Protect against `SecurityException` crashes caused by Samsung Knox
+- Fix crash caused by `IllegalStateException` when bluetooth adapter is off for
+  HTC devices on Android 6.0+
+- Prevent UI lag, and possible ANR (Application Not Responding) message, by not
+  blocking the main thread when starting or stopping a bluetooth scan
+- Prevent duplicate region enter events on kit sync
+- Don't start scanning when BLE feature is unavailable
+- Use elapsed real time for sync intervals avoid potential issues with forced
+  clock times
+
+Deprecations:
+
+- `ProximityKitGeofenceRegion#asGeofence` has been deprecated in an effort to
+  make `ProximityKitGeofenceRegion` Google Play agnostic in a future release
+- `BeaconManager` is now fully deprecated. This class is a legacy internal
+  implementation detail which was accidentally exposed in the published public
+  API. It is slowly being phased out and will be removed in the next major
+  release.
+- `ProximityKitManager#getBeaconManager` has been deprecated inline with the
+  `BeaconManager` deprecation
+- `ProximityKitManager#getBeaconAdapter` has been deprecated as it was always
+  an internal implementation detail that was accidentally exposed in the
+  published API
+- `KitMap#getOverlays` has been deprecated and replaced with
+  `KitMap#getGeofences`; the `KitOverlay` entity is an internal representation
+  and was not meant to be exposed publicly
+- `ProximityKitManager#context` has been deprecated as it's an internal
+  implementation detail and not intended to be modified outside of the library
+- `ProximityKitManager#syncIfNeeded` is an internal implementation detail and
+  has been deprecated as part of the public API
+- `ProximityKitManager#setKit` is an internal library implementation detail and
+  not meant to be part of the public API
+- `BeaconManager#getInstanceForApplication` is no longer used and will be
+  removed in the next major release
+- The entire `com.radiusnetworks.proximity.licensing` package is now
+  deprecated; this includes `Configuration`, `LicenseManager`,
+  `LicensingException`, and `PropertiesFile`. This package and all classes will
+  be removed in the next major release with no replacements.
+
+Breaking Changes:
+
+- Removal of deprecated constructor `ProximityKitManager()`; this constructor
+  was fundamentally broken and created instance which always crash - use
+  `ProximityKitManager#getInstance(Context, KitConfig)` instead
+
+
 ## Version 0.12.3 - November 7, 2016
 
 Bug Fixes:
