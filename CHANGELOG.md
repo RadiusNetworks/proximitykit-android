@@ -1,3 +1,12 @@
+## Version 0.13.1 - November 30, 2017
+
+Bug Fixes:
+
+- Fix bug causing the configuration setting `ALLOW_UNSUPPORTED_GOOGLE_PLAY` to
+  always be `false` after a sync.
+- Fix manifest element nesting which may cause a lint error on manifest merge
+
+
 ## Version 0.13.0 - May 19, 2017
 
 Enhancements:
