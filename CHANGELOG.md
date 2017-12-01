@@ -1,3 +1,27 @@
+## Version 0.14.0-beta.1 - November 30, 2017
+
+Enhancements:
+
+- Support Android 8.0 (API 26)
+
+  Android 8.0 imposes new restrictions on BLE scanning while in the background.
+  This release changes the behavior on Android 8 to use the `JobScheduler` to
+  perform background scans. Due to limitations of the OS these background scan
+  jobs may not be scheduled faster than once every 15 minutes. However, when a
+  scan job completes, if no beacons are detected a low power scan will begin.
+  This scan will continue to run until any beacon is detected at which point
+  the `JobScheduler` will start again.
+
+  Foreground behavior remains the same as prior releases even on Android 8.
+  Additionally, these background changes only affects devices running Android
+  8.0 or newer. Devices running older Android versions will continue to use the
+  existing legacy behavior.
+
+  For more details see [Background Execution Limits](https://developer.android.com/about/versions/oreo/background.html)
+  and [Background Location Limits](https://developer.android.com/about/versions/oreo/background-location-limits.html).
+- Support Google Play 11.x
+
+
 ## Version 0.13.1 - November 30, 2017
 
 Bug Fixes:
