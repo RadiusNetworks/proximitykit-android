@@ -1,3 +1,43 @@
+## Version 0.14.0 - January 11, 2018
+
+Enhancements:
+
+- Support Android 8.0 (API 26)
+
+  Android 8.0 imposes new restrictions on BLE scanning while in the background.
+  This release changes the behavior on Android 8 to use the `JobScheduler` to
+  perform background scans. Due to limitations of the OS these background scan
+  jobs may not be scheduled faster than once every 15 minutes. However, when a
+  scan job completes, if no beacons are detected a low power scan will begin.
+  This scan will continue to run until any beacon is detected at which point
+  the `JobScheduler` will start again.
+
+  Foreground behavior remains the same as prior releases even on Android 8.
+  Additionally, these background changes only affects devices running Android
+  8.0 or newer. Devices running older Android versions will continue to use the
+  existing legacy behavior.
+
+  For more details see [Background Execution Limits](https://developer.android.com/about/versions/oreo/background.html)
+  and [Background Location Limits](https://developer.android.com/about/versions/oreo/background-location-limits.html).
+- Support Google Play 11.x
+- Sends a `ProximityKitGeofenceNotifier.didDetermineStateForGeofence` with a
+  state of `UNKNOWN` when location services is disabled after geofences have
+  been registered
+- Hooks into location setting broadcasts for improved geofence support on
+  devices running KitKat (API 19) or higher
+- When location services is disabled, or otherwise stops providing location,
+  `ProximityKitGeofenceNotifier#didDetermineStateForGeofence` will now be
+  called with state `RegionEvent.UNKNOWN`
+
+Bug Fixes:
+
+- Fixes an issue where after geofences have been registered and location
+  services disabled, then re-enabled, not all geofences may be re-registered
+  after the next sync
+- Fix race condition where toggling geofences on/off may have resulted in
+  inconsistent geofence registrations
+
+
 ## Version 0.13.1 - November 30, 2017
 
 Bug Fixes:
