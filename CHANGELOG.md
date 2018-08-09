@@ -1,3 +1,11 @@
+## Version 0.15.0 - August 9, 2018
+
+Enhancements:
+
+- Support Android 8.1 (API 27)
+- Support Google Play 15.x
+
+
 ## Version 0.14.0 - January 11, 2018
 
 Enhancements:
